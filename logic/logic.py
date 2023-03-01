@@ -19,9 +19,9 @@ def dualformula(s):
 def print01(truthtable):
     for tv in truthtable:
         if tv:
-            print("1", end="    ")
+            print("1", end="   ")
         else:
-            print("0", end="    ")
+            print("0", end="   ")
     print("")
     return
 
@@ -49,6 +49,41 @@ def truthtable3(s):
     return
 
 # ch2-2
+def isargument2(pre, s):
+    w='Q   R   '
+    for u in pre:
+        w = w + u + '   '
+    w = w + '╞   ' + s
+    print(w)
+    truth = {True, False}
+    for Q in truth:
+        for R in truth:
+            pv = []
+            for pk in pre:
+                pv = pv + [eval(pk)]
+            f = eval(s)
+            t = [Q, R] + pv + [f]
+            print01(t)
+    return
+
+def isargument3(pre, s):
+    w='P   Q   R   '
+    for u in pre:
+        w = w + u + '   '
+    w = w + '╞' + s
+    print(w)
+    truth = {True, False}
+    for P in truth:
+        for Q in truth:
+            for R in truth:
+                pv = []
+                for pk in pre:
+                    pv = pv + [eval(pk)]
+                f = eval(s)
+                t = [Q, R] + pv + [f]
+                print01(t)
+    return
+
 def isequation2(e1, e2):
     w='Q   R   '+e1+'   '+e2+'   e1==e2'
     print(w)
@@ -90,7 +125,7 @@ def issubstitution2(s, t, s1):
     return
 
 def issubstitution3(s ,t ,s1):
-    w='P   Q   R   f1   f2   f1==f2'
+    w='P   Q   R   f1  f2  f1==f2'
     print("%r"%w)
     rv = [s, t, s1]
     truth = {True, False}
@@ -111,9 +146,9 @@ def invassignment(s):
     return s
 
 def dualreplace(s):
-    s = s.replace('∨', '|')
-    s = s.replace('∧', '&')
-    s = s.replace('¬', 'not')
+    s = s.replace('∨', ' | ')
+    s = s.replace('∧', ' & ')
+    s = s.replace('¬', ' not ')
     return s
 
 
