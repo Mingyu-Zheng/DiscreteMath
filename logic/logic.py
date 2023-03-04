@@ -80,7 +80,7 @@ def isargument3(pre, s):
                 for pk in pre:
                     pv = pv + [eval(pk)]
                 f = eval(s)
-                t = [Q, R] + pv + [f]
+                t = [P, Q, R] + pv + [f]
                 print01(t)
     return
 
@@ -146,8 +146,8 @@ def invassignment(s):
     return s
 
 def dualreplace(s):
-    s = s.replace('∨', ' | ')
-    s = s.replace('∧', ' & ')
+    s = s.replace('∨', ' or ')
+    s = s.replace('∧', ' and ')
     s = s.replace('¬', ' not ')
     return s
 
